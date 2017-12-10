@@ -6,19 +6,18 @@ public class EvenOddSort {
 
     public static void sort(int[] array) {
         long startTime = System.currentTimeMillis();
-        int temp;
-        int i = 0;
+        int j = 0;
         while (true) {
             int changeCount = 0;
-            for (int k = i; k < array.length - 1; k += 2) {
-                if (array[k] > array[k + 1]) {
-                    temp = array[k + 1];
-                    array[k + 1] = array[k];
-                    array[k] = temp;
+            for (int i = j; i < array.length - 1; i += 2) {
+                if (array[i] > array[i + 1]) {
+                    int temp = array[i + 1];
+                    array[i + 1] = array[i];
+                    array[i] = temp;
                     changeCount++;
                 }
             }
-            i = (i == 0 ? 1 : 0);
+            j = (j == 0 ? 1 : 0);
             if (changeCount == 0) {
                 break;
             }

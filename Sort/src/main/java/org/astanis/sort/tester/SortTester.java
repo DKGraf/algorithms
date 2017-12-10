@@ -1,6 +1,6 @@
 package org.astanis.sort.tester;
 
-import org.astanis.sort.sorters.SelectionSort;
+import org.astanis.sort.sorters.CombSort;
 
 import java.util.Random;
 
@@ -14,19 +14,22 @@ public class SortTester {
         //int[] arrayShaker = new int[size];
         //int[] arrayEvenOdd = new int[size];
         //int[] arrayInsertion = new int[size];
-        int[] arraySelection = new int[size];
+        //int[] arraySelection = new int[size];
+        int[] arrayComb = new int[size];
         //System.arraycopy(array, 0, arrayBubble, 0, size);
         //System.arraycopy(array, 0, arrayShaker, 0, size);
         //System.arraycopy(array, 0, arrayEvenOdd, 0, size);
         //System.arraycopy(array, 0, arrayInsertion, 0, size);
-        System.arraycopy(array, 0, arraySelection, 0, size);
+        //System.arraycopy(array, 0, arraySelection, 0, size);
+        System.arraycopy(array, 0, arrayComb, 0, size);
         //BubbleSort.sort(arrayBubble);
         //ShakerSort.sort(arrayShaker);
         //EvenOddSort.sort(arrayEvenOdd);
         //InsertionSort.sort(arrayInsertion);
-        SelectionSort.sort(arraySelection);
+        //SelectionSort.sort(arraySelection);
+        CombSort.sort(arrayComb);
         for (int i :
-                arraySelection) {
+                arrayComb) {
             System.out.println(i);
         }
     }

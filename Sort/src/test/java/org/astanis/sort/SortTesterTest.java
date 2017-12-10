@@ -11,7 +11,7 @@ class SortTesterTest {
 
     @Test
     void main() {
-        int size = 10_000;
+        int size = 10000;
         int[] array = new int[size];
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
@@ -23,6 +23,7 @@ class SortTesterTest {
         int[] arrayShaker = new int[size];
         int[] arrayEvenOdd = new int[size];
         int[] arrayInsertion = new int[size];
+        int[] arrayComb = new int[size];
 
         System.arraycopy(array, 0, testArray, 0, size);
         System.arraycopy(array, 0, arraySelection, 0, size);
@@ -30,18 +31,21 @@ class SortTesterTest {
         System.arraycopy(array, 0, arrayShaker, 0, size);
         System.arraycopy(array, 0, arrayEvenOdd, 0, size);
         System.arraycopy(array, 0, arrayInsertion, 0, size);
+        System.arraycopy(array, 0, arrayComb, 0, size);
 
         Arrays.sort(testArray);
-        SelectionSort.sort(arraySelection);
         BubbleSort.sort(arrayBubble);
         ShakerSort.sort(arrayShaker);
         EvenOddSort.sort(arrayEvenOdd);
+        CombSort.sort(arrayComb);
+        SelectionSort.sort(arraySelection);
         InsertionSort.sort(arrayInsertion);
 
-        Assertions.assertArrayEquals(testArray, arraySelection);
         Assertions.assertArrayEquals(testArray, arrayBubble);
         Assertions.assertArrayEquals(testArray, arrayShaker);
         Assertions.assertArrayEquals(testArray, arrayEvenOdd);
+        Assertions.assertArrayEquals(testArray, arrayComb);
+        Assertions.assertArrayEquals(testArray, arraySelection);
         Assertions.assertArrayEquals(testArray, arrayInsertion);
     }
 }
