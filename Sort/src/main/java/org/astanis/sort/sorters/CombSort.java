@@ -27,7 +27,6 @@ public class CombSort {
             } else {
                 factor = 1;
             }
-
         }
         long finishTime = System.currentTimeMillis();
         System.out.println("Comb Sort: " + (finishTime - startTime));

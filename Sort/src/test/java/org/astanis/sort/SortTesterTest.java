@@ -11,12 +11,13 @@ class SortTesterTest {
 
     @Test
     void main() {
-        int size = 10000;
+        int size = 100000;
         int[] array = new int[size];
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt();
         }
+
         int[] testArray = new int[size];
         int[] arraySelection = new int[size];
         int[] arrayBubble = new int[size];
@@ -24,6 +25,7 @@ class SortTesterTest {
         int[] arrayEvenOdd = new int[size];
         int[] arrayInsertion = new int[size];
         int[] arrayComb = new int[size];
+        int[] arrayShell = new int[size];
 
         System.arraycopy(array, 0, testArray, 0, size);
         System.arraycopy(array, 0, arraySelection, 0, size);
@@ -32,14 +34,20 @@ class SortTesterTest {
         System.arraycopy(array, 0, arrayEvenOdd, 0, size);
         System.arraycopy(array, 0, arrayInsertion, 0, size);
         System.arraycopy(array, 0, arrayComb, 0, size);
+        System.arraycopy(array, 0, arrayShell, 0, size);
 
+        long before = System.currentTimeMillis();
         Arrays.sort(testArray);
+        long after = System.currentTimeMillis();
+        System.out.println("Arrays.sort: " + (after - before));
+
         BubbleSort.sort(arrayBubble);
         ShakerSort.sort(arrayShaker);
         EvenOddSort.sort(arrayEvenOdd);
         CombSort.sort(arrayComb);
         SelectionSort.sort(arraySelection);
         InsertionSort.sort(arrayInsertion);
+        ShellSort.sort(arrayShell);
 
         Assertions.assertArrayEquals(testArray, arrayBubble);
         Assertions.assertArrayEquals(testArray, arrayShaker);
@@ -47,5 +55,6 @@ class SortTesterTest {
         Assertions.assertArrayEquals(testArray, arrayComb);
         Assertions.assertArrayEquals(testArray, arraySelection);
         Assertions.assertArrayEquals(testArray, arrayInsertion);
+        Assertions.assertArrayEquals(testArray, arrayShell);
     }
 }
