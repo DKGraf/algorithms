@@ -11,7 +11,7 @@ class SortTesterTest {
 
     @Test
     void main() {
-        int size = 100000;
+        int size = 50000;
         int[] array = new int[size];
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
@@ -26,6 +26,7 @@ class SortTesterTest {
         int[] arrayInsertion = new int[size];
         int[] arrayComb = new int[size];
         int[] arrayShell = new int[size];
+        int[] arrayMerge = new int[size];
 
         System.arraycopy(array, 0, testArray, 0, size);
         System.arraycopy(array, 0, arraySelection, 0, size);
@@ -35,6 +36,7 @@ class SortTesterTest {
         System.arraycopy(array, 0, arrayInsertion, 0, size);
         System.arraycopy(array, 0, arrayComb, 0, size);
         System.arraycopy(array, 0, arrayShell, 0, size);
+        System.arraycopy(array, 0, arrayMerge, 0, size);
 
         long before = System.currentTimeMillis();
         Arrays.sort(testArray);
@@ -48,6 +50,7 @@ class SortTesterTest {
         SelectionSort.sort(arraySelection);
         InsertionSort.sort(arrayInsertion);
         ShellSort.sort(arrayShell);
+        MergeSort.sort(arrayMerge);
 
         Assertions.assertArrayEquals(testArray, arrayBubble);
         Assertions.assertArrayEquals(testArray, arrayShaker);
@@ -56,5 +59,6 @@ class SortTesterTest {
         Assertions.assertArrayEquals(testArray, arraySelection);
         Assertions.assertArrayEquals(testArray, arrayInsertion);
         Assertions.assertArrayEquals(testArray, arrayShell);
+        Assertions.assertArrayEquals(testArray, arrayMerge);
     }
 }
